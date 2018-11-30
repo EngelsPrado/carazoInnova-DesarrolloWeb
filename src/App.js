@@ -6,6 +6,7 @@ import IniciaSesion from './components/IniciaSesion'
 import Nosotros from './components/Nosotros'
 import Dashboard from './components/dashboard';
 import Registrar from './components/Registrar';
+import NegocioDetail from './layout/NegocioDetail';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
         <div className="App">
         <NavBar></NavBar>
         <Switch>
+        <Route path='/negocioDetail/:id' component={NegocioDetail} />
          <Route exact path='/' component={Presentation} ></Route>
          <Route path='/sesion' component={IniciaSesion} ></Route>
          <Route path='/nosotros' component={Nosotros} ></Route>

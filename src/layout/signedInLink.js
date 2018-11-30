@@ -14,7 +14,7 @@ const SignedInLinks = (props) => {
          <img  width='45'  src={props.profile.photoURL}></img>
         
         </NavLink></li>
-        <li><a onClick={props.signOut}>Log Out</a></li>
+        <li><button onClick={props.signOut} type="button" class="btn btn-secondary">Cerrar Sesion</button></li>
       </ul>
     </div>
   )

@@ -66,7 +66,7 @@ class IniciaSesion extends Component {
         if (auth.uid || this.state.isSignedIn) return <Redirect to='/' /> 
         return (
             <div>
-             <StyledFirebaseAuth  uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}></StyledFirebaseAuth>
+             <StyledFirebaseAuth className="ui" uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}></StyledFirebaseAuth>
             </div>
         );
     }

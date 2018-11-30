@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form'
-import firebase from 'firebase'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 
@@ -8,7 +7,7 @@ import { connect } from 'react-redux'
 const required = value => (value || typeof value === 'number' ? undefined : 'Required')
 const maxLength = max => value =>
   value && value.length > max ? `Must be ${max} characters or less` : undefined
-const maxLength50 = maxLength(15)
+const maxLength50 = maxLength(50)
 export const minLength = min => value =>
   value && value.length < min ? `Must be ${min} characters or more` : undefined
 export const minLength2 = minLength(2)
@@ -51,9 +50,9 @@ class CreateBus extends Component {
     meta: { touched, error, warning }
   }) => (
     <div>
-      <label>{label}</label>
+      <label>< h5 className="black-text text-darken-3">{label}</h5></label>
       <div>
-        <input {...input}
+        <input className="input-field" {...input}
          placeholder={label} type={type} ref={this.fileInput}
        />
         {touched &&
@@ -70,7 +69,7 @@ class CreateBus extends Component {
     meta: { touched, error, warning }
   }) => (
     <div>
-      <label>{label}</label>
+      <label >{label}</label>
       <div>
         <input {...input}
          placeholder={label} type={type} value={this.state.value}
@@ -92,8 +91,9 @@ class CreateBus extends Component {
       const {submitting,handleSubmit,pristine,reset}=this.props
         
         return (
-            <div>
-                 <form onSubmit={handleSubmit} encType="multipart/form-data">
+            <div  className="container">
+              <h5 className="blue-text text-darken-3">Registro del Negocio</h5>
+                 <form className="white" onSubmit={handleSubmit} encType="multipart/form-data">
       <Field
         name="nameNegocio"
         type="text"
@@ -115,9 +115,42 @@ class CreateBus extends Component {
         name="phone"
         type="number"
         component={this.renderField}
-        label="Phone number"
+        label="Telefono"
         validate={[required, phoneNumber]}
       />
+
+      <Field
+        name="clasificacion"
+        type="text"
+        component={this.renderField}
+        label="Tipo de Negocio"
+        validate={[required]}
+      />  
+        <Field
+        name="horarioAtencion"
+        type="text"
+        component={this.renderField}
+        label="Horarios de Atencion"
+        validate={[required]}
+      />
+
+       <Field
+        name="direccion"
+        type="text"
+        component={this.renderField}
+        label="Direccion del Local"
+        validate={[required]}
+      />
+        
+
+        <Field
+        name="otros"
+        type="text"
+        component={this.renderField}
+        label="Otros Servicios"
+        validate={[required]}
+      />  
+       
        <Field
         name="photo"
         type="file"
@@ -125,12 +158,12 @@ class CreateBus extends Component {
         label="photo"
         validate={[required]}
       />
-      
+ 
       <div>
-        <button type="submit" disabled={pristine || submitting}  >
+        <button className="btn pink lighten-1 z-depth-0" type="submit" disabled={pristine || submitting}  >
           Submit
         </button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>
+        <button className="btn pink lighten-1 z-depth-0"  type="button" disabled={pristine || submitting} onClick={reset}>
           Clear Values
         </button>
       </div>
@@ -144,6 +177,6 @@ class CreateBus extends Component {
   export default compose(
     connect(null,null),
     reduxForm({
-      form: 'simple' // a unique identifier for this form
+      form: 'simple', // a unique identifier for this form   
     })
   )(CreateBus)

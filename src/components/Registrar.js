@@ -29,7 +29,7 @@ class Registrar extends Component {
               });
             })
             const getURL=(url)=>this.props.createNegocio(value,url)   
-           this.props.history.push('/');
+           this.props.history.push('/dashboard');
         }
         //handleOnSubmitSuccess=(photo)=>this.pro 
     

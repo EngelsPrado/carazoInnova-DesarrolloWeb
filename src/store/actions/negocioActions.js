@@ -7,9 +7,18 @@ export const createNegocio = (negocio,url) => {
       const authorId = getState().firebase.auth.uid;
 
       console.log(negocio)
+
       firestore.collection('negocios').add({
         user:profile.displayName,
-        authorId: authorId,
+        email:profile.email,
+        authorId,
+        NombreNegocio:negocio.nameNegocio,
+        telefono:negocio.phone,
+        horarios:negocio.horarioAtencion,
+        direccion:negocio.direccion,
+        descripcion:negocio.descripcion,
+        tipoNegocio:negocio.clasificacion,
+        otros:negocio.otros,
         createdAt: new Date(),
         urlPhoto:url.toString()
       }).then(() => {

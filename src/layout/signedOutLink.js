@@ -5,7 +5,7 @@ const SignedOutLinks = () => {
   return (
     <div>
       <ul className="right">
-        <li><NavLink to='/sesion'>Inicia Sesion</NavLink></li>
+        <li><NavLink to='/sesion'><button  type="button" class="btn btn-secondary">Iniciar Sesion</button></NavLink></li>
       </ul>
     </div>
   )

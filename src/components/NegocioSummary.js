@@ -12,7 +12,7 @@ class NegocioSummary extends Component {
             <div class="card-body">
                <h5 class="card-title">{negocios.NombreNegocio}</h5>
              <p class="card-text">{negocios.descripcion}</p>
-               <Link to={'/negocioDetail/' + negocios.id}>Ir a...</Link>
+               <Link to={'/negocioDetail/' + negocios.id}>Ver mas detalles...</Link>
             </div>
           </div> 
         </div>

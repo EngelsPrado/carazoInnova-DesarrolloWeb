@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import NegocioSummary from './NegocioSummary'
-import {Link} from 'react-router-dom'
 
 class ListNegocios extends Component {
   

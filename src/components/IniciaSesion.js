@@ -63,10 +63,15 @@ class IniciaSesion extends Component {
       };
     render() {
         const { authError, auth } = this.props;
+   
         if (auth.uid || this.state.isSignedIn) return <Redirect to='/' /> 
         return (
-            <div>
-             <StyledFirebaseAuth className="ui" uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}></StyledFirebaseAuth>
+            <div className="dashboard container">
+             <div className="col s12 m6">
+             <img    src="https://firebasestorage.googleapis.com/v0/b/businic-aeaea.appspot.com/o/Logo%20de%20app-03.png?alt=media&token=70ec9631-1769-4dd6-96c9-028876daccfb"  className="img-thumbnail mx-auto d-block rounded " alt="Responsive image" > 
+             </img>
+              <StyledFirebaseAuth className="ui" uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}></StyledFirebaseAuth>
+              </div>
             </div>
         );
     }

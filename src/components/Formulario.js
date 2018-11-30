@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
-
+import {setPropAsInitial} from './../helpers/setPropsInitial'
 
 const required = value => (value || typeof value === 'number' ? undefined : 'Required')
 const maxLength = max => value =>
@@ -174,9 +174,10 @@ class CreateBus extends Component {
     }
 }
 
-  export default compose(
-    connect(null,null),
-    reduxForm({
+   
+   export default reduxForm({
       form: 'simple', // a unique identifier for this form   
     })
-  )(CreateBus)
+  (CreateBus)
+
+
